@@ -56,3 +56,34 @@ plot(g1, vertex.label.color = "black", layout = m)
 # Plot the graph object g1 using igraph's chosen layout 
 m1 <- layout_nicely(g1)
 plot(g1, vertex.label.color = "black", layout = m1)
+
+# Visualizing edges
+
+# Create a vector of weights based on the number of hours each pair spend together
+w1 <- E(g1)$hours
+
+# Plot the network varying edges by weights
+m1 <- layout_nicely(g1)
+plot(g1, 
+     vertex.label.color = "black", 
+     edge.color = 'black',
+     edge.width = w1,
+     layout = m1)
+
+
+# Create a new igraph object by deleting edges that are less than 2 hours long 
+g2 <- delete_edges(g1, E(g1)[hours< 2])
+
+
+# Plot the new graph 
+w2 <- E(g2)$hours
+m2 <- layout_nicely(g2)
+
+plot(g2, 
+     vertex.label.color = "black", 
+     edge.color = 'black',
+     edge.width = w2,
+     layout = m2)
+
+
+
