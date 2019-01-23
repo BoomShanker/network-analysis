@@ -110,3 +110,5 @@ V(g1)$color <- ifelse(V(g1)$gender == "F", "orange", "dodgerblue")
 
 # Plot the graph
 plot(g1, vertex.label.color = "black")
+
+
